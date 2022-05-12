@@ -12,6 +12,7 @@ public struct KKTextField: View {
     
     @State var validationTextColor: Color = .gray
     
+    var imageName: String?
     let valueMask: String?
     let defaultValue: String?
     let placeholderValue: String
@@ -21,8 +22,9 @@ public struct KKTextField: View {
     
     private let logic = TextFieldLogic()
     
-    public init(value: Binding<String>, valueMask: String? = nil, defaultValue: String? = nil, placeholderValue: String, keyboardType: UIKeyboardType = .default, isReadOnly: Bool = false, validityOptions: [ValidityOption] = []) {
+    public init(value: Binding<String>, imageName: String? = nil, valueMask: String? = nil, defaultValue: String? = nil, placeholderValue: String, keyboardType: UIKeyboardType = .default, isReadOnly: Bool = false, validityOptions: [ValidityOption] = []) {
         self._value = value
+        self.imageName = imageName
         self.valueMask = valueMask
         self.defaultValue = defaultValue
         self.placeholderValue = placeholderValue
@@ -34,8 +36,10 @@ public struct KKTextField: View {
     public var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: "iphone")
-                    .foregroundColor(.gray)
+                if let imageName = imageName {
+                    Image(systemName: imageName)
+                        .foregroundColor(.gray)
+                }
                 TextField(placeholderValue, text: $value)
                     .keyboardType(keyboardType)
                     .onChange(of: value) { newValue in
@@ -110,7 +114,7 @@ public struct KKTextField: View {
 
 struct KKTextField_Previews: PreviewProvider {
     static var previews: some View {
-        KKTextField(value: .constant("Hello"), valueMask: nil, defaultValue: nil, placeholderValue: "Enter username", keyboardType: .default, isReadOnly: false, validityOptions: [.maxDoubleValue(4500)])
+        KKTextField(value: .constant("Hello"), imageName: "person.fill", valueMask: nil, defaultValue: nil, placeholderValue: "Enter username", keyboardType: .default, isReadOnly: false, validityOptions: [.maxDoubleValue(4500)])
             .previewLayout(.fixed(width: 350, height: 200))
     }
 }
