@@ -32,19 +32,64 @@ public struct KKTextField: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
+//            TextField(one)
             TextField(placeholderValue, text: $value)
                 .padding(.horizontal)
 //                .border(Color.secondary, width: 2)
                 .keyboardType(keyboardType)
                 .onChange(of: value) { newValue in
                     print("new value is \(newValue)")
+                    
+                    print(checDoubleValueValidity(for: newValue, option: .max, limit: 4500))
                 }
+//                .onReceive(value.publisher) { newValue in
+//                    print(newValue)
+//                }
             Text("Validation text.")
                 .foregroundColor(validationTextColor)
                 .font(.caption)
                 .padding(.horizontal)
         }
         .textFieldStyle(.roundedBorder)
+    }
+    
+    // MARK: - Validation
+  
+    
+    /// Describes the comparision option: minimum and maximum.
+    enum ComparisionOption {
+        case max
+        case min
+    }
+    
+    private func checDoubleValueValidity(for value: String, option: ComparisionOption, limit: Double, isZeroValid: Bool = true) -> Bool {
+        guard let value = Double(value.replacingOccurrences(of: ",", with: ".")) else {
+            return false
+        }
+        
+        if isZeroValid,
+           abs(value).isEqual(to: 0) {
+            return true
+        }
+        
+        switch option {
+            case .max: return value <= limit
+            case .min: return value >= limit
+        }
+    }
+    
+    private func checkTextLengthValidity(for value: String, option: ComparisionOption, length: Int) -> Bool {
+        switch option {
+            case .max: return value.count >= length
+            case .min: return value.count <= length
+        }
+    }
+    
+    private func checkRegExpValidity(for value: String, with regExp: String) -> Bool {
+        if value.range(of: regExp, options: .regularExpression) == nil {
+            return false
+        }
+        return true
     }
 }
 
