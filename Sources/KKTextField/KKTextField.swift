@@ -46,6 +46,12 @@ public struct KKTextField: View {
     //                .onReceive(value.publisher) { newValue in
     //                    print(newValue)
     //                }
+                Button(action: {
+                    value = ""
+                }, label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(Color.gray)
+                })
             }
             .padding(8)
             .background(Color.gray.opacity(0.05))
