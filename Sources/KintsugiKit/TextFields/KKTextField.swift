@@ -2,7 +2,7 @@ import SwiftUI
 
 public struct KKTextField: View {
 
-    enum ValidityOption {
+    public enum ValidityOption {
         case minDoubleValue(Double)
         case maxDoubleValue(Double)
     }
@@ -21,6 +21,14 @@ public struct KKTextField: View {
     
     private let logic = TextFieldLogic()
     
+    public init(valueMask: String? = nil, defaultValue: String? = nil, placeholderValue: String, keyboardType: UIKeyboardType = .default, isReadOnly: Bool = false, validityOptions: [ValidityOption] = []) {
+        self.valueMask = valueMask
+        self.defaultValue = defaultValue
+        self.placeholderValue = placeholderValue
+        self.keyboardType = keyboardType
+        self.isReadOnly = isReadOnly
+        self.validityOptions = validityOptions
+    }
     
     public var body: some View {
         VStack(alignment: .leading) {
