@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct PrimaryButton: View {
+public struct KKButton: View {
     var title: String
     var action: (() -> Void)?
     
@@ -17,9 +17,9 @@ public struct PrimaryButton: View {
     }
 }
 
-struct PrimaryButton_Previews: PreviewProvider {
+struct KKButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(title: "Press me")
+        KKButton(title: "Press me")
             .previewLayout(.fixed(width: 350, height: 100))
     }
 }

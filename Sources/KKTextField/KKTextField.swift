@@ -9,7 +9,6 @@ public struct KKTextField: View {
     
     @Binding var value: String
     @State var isValueValid = true
-    
     @State var validationTextColor: Color = .gray
     
     var imageName: String?
