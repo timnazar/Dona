@@ -7,7 +7,7 @@ public struct KKTextField: View {
         case maxDoubleValue(Double)
     }
     
-    @State var value = ""
+    @Binding var value: String
     @State var isValueValid = true
     
     @State var validationTextColor: Color = .gray
@@ -21,7 +21,8 @@ public struct KKTextField: View {
     
     private let logic = TextFieldLogic()
     
-    public init(valueMask: String? = nil, defaultValue: String? = nil, placeholderValue: String, keyboardType: UIKeyboardType = .default, isReadOnly: Bool = false, validityOptions: [ValidityOption] = []) {
+    public init(value: Binding<String>, valueMask: String? = nil, defaultValue: String? = nil, placeholderValue: String, keyboardType: UIKeyboardType = .default, isReadOnly: Bool = false, validityOptions: [ValidityOption] = []) {
+        self._value = value
         self.valueMask = valueMask
         self.defaultValue = defaultValue
         self.placeholderValue = placeholderValue
@@ -32,25 +33,32 @@ public struct KKTextField: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
-//            TextField(one)
-            TextField(placeholderValue, text: $value)
-                .padding(.horizontal)
-//                .border(Color.secondary, width: 2)
-                .keyboardType(keyboardType)
-                .onChange(of: value) { newValue in
-                    print("new value is \(newValue)")
-                    
-                    print(checDoubleValueValidity(for: newValue, option: .max, limit: 4500))
-                }
-//                .onReceive(value.publisher) { newValue in
-//                    print(newValue)
-//                }
-            Text("Validation text.")
+            HStack {
+                Image(systemName: "iphone")
+                    .foregroundColor(.gray)
+                TextField(placeholderValue, text: $value)
+                    .keyboardType(keyboardType)
+                    .onChange(of: value) { newValue in
+                        print("new value is \(newValue)")
+                        
+                        print(checDoubleValueValidity(for: newValue, option: .max, limit: 4500))
+                    }
+    //                .onReceive(value.publisher) { newValue in
+    //                    print(newValue)
+    //                }
+            }
+            .padding(8)
+            .background(Color.gray.opacity(0.05))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+            )
+            
+            Text("Must be between 8 and 15 characters containing at least one number and one capital letter.")
                 .foregroundColor(validationTextColor)
                 .font(.caption)
-                .padding(.horizontal)
+                .fixedSize(horizontal: false, vertical: true)
         }
-        .textFieldStyle(.roundedBorder)
     }
     
     // MARK: - Validation
@@ -96,7 +104,7 @@ public struct KKTextField: View {
 
 struct KKTextField_Previews: PreviewProvider {
     static var previews: some View {
-        KKTextField(valueMask: nil, defaultValue: nil, placeholderValue: "Enter username", keyboardType: .default, isReadOnly: false, validityOptions: [.maxDoubleValue(4500)])
+        KKTextField(value: .constant("Hello"), valueMask: nil, defaultValue: nil, placeholderValue: "Enter username", keyboardType: .default, isReadOnly: false, validityOptions: [.maxDoubleValue(4500)])
             .previewLayout(.fixed(width: 350, height: 200))
     }
 }
