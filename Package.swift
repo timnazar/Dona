@@ -16,6 +16,9 @@ let package = Package(
         .library(
             name: "KintsugiKitTextField",
             targets: ["KKTextField"]),
+        .library(
+            name: "KintsugiKitButton",
+            targets: ["KKButton"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -29,6 +32,9 @@ let package = Package(
             dependencies: []),
         .target(
             name: "KKTextField",
+            dependencies: []),
+        .target(
+            name: "KKButton",
             dependencies: []),
         .testTarget(
             name: "KintsugiKitTests",
