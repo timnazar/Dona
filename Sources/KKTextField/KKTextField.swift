@@ -54,14 +54,13 @@ public struct KKTextField: View {
     }
     
     // MARK: - Validation
-  
-    
     /// Describes the comparision option: minimum and maximum.
     enum ComparisionOption {
         case max
         case min
     }
     
+    /// Comparing a value with the min/max allowed value.
     private func checDoubleValueValidity(for value: String, option: ComparisionOption, limit: Double, isZeroValid: Bool = true) -> Bool {
         guard let value = Double(value.replacingOccurrences(of: ",", with: ".")) else {
             return false
@@ -78,6 +77,7 @@ public struct KKTextField: View {
         }
     }
     
+    // Checking the value for the maximum number of characters.
     private func checkTextLengthValidity(for value: String, option: ComparisionOption, length: Int) -> Bool {
         switch option {
             case .max: return value.count >= length
@@ -85,6 +85,7 @@ public struct KKTextField: View {
         }
     }
     
+    /// Checking for value matches against a regular expression.
     private func checkRegExpValidity(for value: String, with regExp: String) -> Bool {
         if value.range(of: regExp, options: .regularExpression) == nil {
             return false
