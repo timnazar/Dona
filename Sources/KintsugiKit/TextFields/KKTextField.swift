@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct KKTextField: View {
+public struct KKTextField: View {
 
     enum ValidityOption {
         case minDoubleValue(Double)
@@ -22,7 +22,7 @@ struct KKTextField: View {
     private let logic = TextFieldLogic()
     
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading) {
             TextField(placeholderValue, text: $value)
                 .padding(.horizontal)
