@@ -18,7 +18,7 @@ private let titleLabel = UILabel()
     .decorated(with: .text("Hello, World!"))
     .decorated(with: .textColor(.systemOrange))
     .decorated(with: .textAlignment(.center))
-    .decorated(with: .font(.systemFont(ofSize: 16, weight: .medium, width: .standard, design: .default)))
+    .decorated(with: .font(.systemFont(ofSize: 16, weight: .medium)))
     .decorated(with: .disabledAutoresizingMask())
 
 ```
