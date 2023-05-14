@@ -16,7 +16,7 @@ private let imageView = UIImageView()
 ```swift
 private let titleLabel = UILabel()
     .decorated(with: .text("Hello, World!"))
-    .decorated(with: .textColor(.primary))
+    .decorated(with: .textColor(.systemOrange))
     .decorated(with: .textAlignment(.center))
     .decorated(with: .font(.systemFont(ofSize: 16, weight: .medium, width: .standard, design: .default)))
     .decorated(with: .disabledAutoresizingMask())
