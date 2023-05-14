@@ -39,3 +39,9 @@ extension DonaViewDecorator {
     }
 }
 ```
+After combining or creating new decorators you can use it as usual:
+```swift
+private let titleLabel = UILabel()
+    .decorated(with: .text("Welcome 👋"))
+    .decorated(with: .largeTitle)
+```
