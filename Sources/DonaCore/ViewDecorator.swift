@@ -10,7 +10,7 @@ import UIKit
 public struct DonaViewDecorator<View: UIView> {
     public let decorator: (View) -> Void
 
-    public init(decorator: @escaping (UIView) -> Void) {
+    public init(decorator: @escaping (View) -> Void) {
         self.decorator = decorator
     }
 
