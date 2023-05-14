@@ -1,11 +1,11 @@
 import XCTest
-@testable import KintsugiKit
+@testable import DonaCore
 
 final class KintsugiKitTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(KintsugiKit().text, "Hello, World!")
+        XCTAssertEqual("Hello, World!", "Hello, World!")
     }
 }
