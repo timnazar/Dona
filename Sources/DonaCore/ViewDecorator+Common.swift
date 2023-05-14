@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension DonaViewDecorator {
+public extension DonaViewDecorator {
     static func disabledAutoresizingMask() -> DonaViewDecorator<View> {
         DonaViewDecorator<View> {
             $0.translatesAutoresizingMaskIntoConstraints = false
