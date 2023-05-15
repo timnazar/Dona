@@ -8,6 +8,7 @@
 import UIKit
 
 public extension DonaViewDecorator {
+    @available(iOS 13.0, *)
     static func systemImage(_ imageName: String) -> DonaViewDecorator<View> {
         DonaViewDecorator<View> { view in
              if let imageView = view as? UIImageView {
