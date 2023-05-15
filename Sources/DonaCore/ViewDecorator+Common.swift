@@ -25,4 +25,10 @@ public extension DonaViewDecorator {
             $0.contentMode = contentMode
         }
     }
+
+    static func backgroundColor(_ color: UIColor) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> {
+            $0.backgroundColor = color
+        }
+    }
 }
