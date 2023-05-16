@@ -8,7 +8,7 @@
 import UIKit
 
 public extension DonaViewDecorator {
-    static func text(_ text: String) -> DonaViewDecorator<View> {
+    static func text(_ text: String?) -> DonaViewDecorator<View> {
         DonaViewDecorator<View> { view in
             if let label = view as? UILabel {
                 label.text = text
