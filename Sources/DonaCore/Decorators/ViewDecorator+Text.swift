@@ -60,6 +60,8 @@ public extension DonaViewDecorator {
         DonaViewDecorator<View> { view in
             if let label = view as? UILabel {
                 label.textColor = color
+            } else if let button = view as? UIButton {
+                button.setTitleColor(color, for: .normal)
             }
         }
     }
