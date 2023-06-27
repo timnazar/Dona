@@ -12,6 +12,8 @@ public extension DonaViewDecorator {
         DonaViewDecorator<View> { view in
             if let label = view as? UILabel {
                 label.text = text
+            } else if let textField = view as? UITextField {
+                textField.text = text
             } else if let button = view as? UIButton {
                 button.setTitle(text, for: .normal)
             }
