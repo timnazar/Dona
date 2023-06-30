@@ -31,4 +31,10 @@ public extension DonaViewDecorator {
             $0.backgroundColor = color
         }
     }
+
+    static func clipToBounds(_ clip: Bool) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> {
+            $0.clipsToBounds = clip
+        }
+    }
 }
