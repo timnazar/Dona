@@ -67,4 +67,12 @@ public extension DonaViewDecorator {
             }
         }
     }
+
+    static func lineBreakMode(_ mode: NSLineBreakMode) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> { view in
+            if let label = view as? UILabel {
+                label.lineBreakMode = mode
+            }
+        }
+    }
 }
