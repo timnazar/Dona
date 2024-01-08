@@ -27,4 +27,10 @@ public extension DonaViewDecorator {
             $0.layer.borderWidth = borderWidth
         }
     }
+
+    static func borderColor(_ borderColor: CGColor) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> {
+            $0.layer.borderColor = borderColor
+        }
+    }
 }
