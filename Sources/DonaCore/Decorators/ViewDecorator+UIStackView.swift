@@ -19,4 +19,17 @@ public extension DonaViewDecorator {
             $0.spacing = spacing
         }
     }
+
+    static func distribution(_ distibution: UIStackView.Distribution) -> DonaViewDecorator<UIStackView> {
+        DonaViewDecorator<UIStackView> {
+            $0.distribution = distibution
+        }
+    }
+
+    static func insets(_ insets: NSDirectionalEdgeInsets) -> DonaViewDecorator<UIStackView> {
+        DonaViewDecorator<UIStackView> {
+            $0.isLayoutMarginsRelativeArrangement = true
+            $0.directionalLayoutMargins = insets
+        }
+    }
 }

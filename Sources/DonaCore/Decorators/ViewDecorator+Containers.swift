@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension DonaViewDecorator {
+public extension DonaViewDecorator {
     static func contentInset(_ insets: UIEdgeInsets) -> DonaViewDecorator<View> {
         DonaViewDecorator<View> { view in
             if let stackView = view as? UIStackView {
