@@ -32,4 +32,10 @@ public extension DonaViewDecorator {
             $0.directionalLayoutMargins = insets
         }
     }
+
+    static func alignment(_ alignment: UIStackView.Alignment) -> DonaViewDecorator<UIStackView> {
+        DonaViewDecorator<UIStackView> {
+            $0.alignment = alignment
+        }
+    }
 }
