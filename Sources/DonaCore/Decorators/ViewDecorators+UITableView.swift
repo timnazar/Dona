@@ -26,6 +26,18 @@ public extension DonaViewDecorator {
         }
     }
 
+    static func header(_ headerClass: AnyClass, identifier: String) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.register(headerClass, forHeaderFooterViewReuseIdentifier: identifier)
+        }
+    }
+
+    static func footer(_ footerClass: AnyClass, identifier: String) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.register(footerClass, forHeaderFooterViewReuseIdentifier: identifier)
+        }
+    }
+
     // MARK: - Scroll Indicator.
     static func verticalScrollIndicator(_ isShowing: Bool) -> DonaViewDecorator<UITableView> {
         DonaViewDecorator<UITableView> {
