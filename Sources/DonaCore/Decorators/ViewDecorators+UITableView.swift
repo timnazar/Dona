@@ -20,7 +20,7 @@ public extension DonaViewDecorator {
         }
     }
 
-    static func registerCell(_ cellClass: AnyClass, identifier: String) -> DonaViewDecorator<UITableView> {
+    static func cell(_ cellClass: AnyClass, identifier: String) -> DonaViewDecorator<UITableView> {
         DonaViewDecorator<UITableView> {
             $0.register(cellClass, forCellReuseIdentifier: identifier)
         }
