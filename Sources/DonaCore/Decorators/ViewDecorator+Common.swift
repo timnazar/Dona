@@ -37,4 +37,10 @@ public extension DonaViewDecorator {
             $0.clipsToBounds = clip
         }
     }
+
+    static func isUserInteractionEnabled(_ isEnabled: Bool) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> {
+            $0.isUserInteractionEnabled = isEnabled
+        }
+    }
 }
