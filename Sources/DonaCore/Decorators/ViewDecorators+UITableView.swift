@@ -38,6 +38,12 @@ public extension DonaViewDecorator {
         }
     }
 
+    static func refreshControl(_ refreshControl: UIRefreshControl) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.refreshControl = refreshControl
+        }
+    }
+
     // MARK: - Scroll Indicator.
     static func verticalScrollIndicator(_ isShowing: Bool) -> DonaViewDecorator<UITableView> {
         DonaViewDecorator<UITableView> {
