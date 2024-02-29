@@ -43,4 +43,10 @@ public extension DonaViewDecorator {
             $0.isUserInteractionEnabled = isEnabled
         }
     }
+
+    static func isHidden(_ isHidden: Bool) -> DonaViewDecorator<View> {
+        DonaViewDecorator<View> {
+            $0.isHidden = isHidden
+        }
+    }
 }
