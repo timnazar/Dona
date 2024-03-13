@@ -1,5 +1,5 @@
 //
-//  ViewDecorators+UITableView.swift
+//  ViewDecorator+UITableView.swift
 //
 //
 //  Created by Tim Nazar on 2/6/24.
