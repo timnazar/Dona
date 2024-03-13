@@ -1,5 +1,5 @@
 //
-//  ViewDecorator+UserInteraction.swift
+//  ViewDecorator+UIScrollView.swift
 //  
 //
 //  Created by Behruz Numonov on 13.03.2024.
