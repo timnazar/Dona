@@ -63,12 +63,72 @@ public extension DonaViewDecorator {
             $0.separatorStyle = style
         }
     }
+    
+    static func separatorInset(_ separatorInset: UIEdgeInsets) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.separatorInset = separatorInset
+        }
+    }
 
     // MARK: - Section.
     @available(iOS 15.0, *)
     static func sectionHeaderTopPadding(_ padding: CGFloat) -> DonaViewDecorator<UITableView> {
         DonaViewDecorator<UITableView> {
             $0.sectionHeaderTopPadding = padding
+        }
+    }
+
+    static func allowsMultipleSelection(_ allowsMultipleSelection: Bool) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.allowsMultipleSelection = allowsMultipleSelection
+        }
+    }
+
+    static func tableHeaderView(_ tableHeaderView: UIView) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.tableHeaderView = tableHeaderView
+        }
+    }
+
+    static func isScrollEnabled(_ isScrollEnabled: Bool) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.isScrollEnabled = isScrollEnabled
+        }
+    }
+
+    static func estimatedRowHeight(_ estimatedRowHeight: CGFloat) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.estimatedRowHeight = estimatedRowHeight
+        }
+    }
+
+    static func rowHeight(_ rowHeight: CGFloat) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.rowHeight = rowHeight
+        }
+    }
+
+    static func sectionHeaderHeight(_ sectionHeaderHeight: CGFloat) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.sectionHeaderHeight = sectionHeaderHeight
+        }
+    }
+
+    static func tableFooterView(_ tableFooterView: UIView) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.tableFooterView = tableFooterView
+        }
+    }
+
+    static func keyboardDismissMode(_ keyboardDismissMode: UITableView.KeyboardDismissMode) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.keyboardDismissMode = keyboardDismissMode
+        }
+    }
+
+    static func bounces(_ bounces: Bool) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.bounces = bounces
         }
     }
 }
