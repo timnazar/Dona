@@ -131,4 +131,10 @@ public extension DonaViewDecorator {
             $0.bounces = bounces
         }
     }
+
+    static func allowsSelection(_ allowsSelection: Bool) -> DonaViewDecorator<UITableView> {
+        DonaViewDecorator<UITableView> {
+            $0.allowsSelection = allowsSelection
+        }
+    }
 }
