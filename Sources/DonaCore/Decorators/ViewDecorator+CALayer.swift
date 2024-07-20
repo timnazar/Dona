@@ -8,11 +8,10 @@
 import UIKit
 
 public extension DonaViewDecorator {
+    @available(iOS 13.0, *)
     static func cornerCurve(_ cornerCurve: CALayerCornerCurve ) -> DonaViewDecorator<View> {
         DonaViewDecorator<View> {
-            if #available(iOS 13.0, *) {
-                $0.layer.cornerCurve = cornerCurve
-            }
+            $0.layer.cornerCurve = cornerCurve
         }
     }
 
